@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ephata.YouCat.Data\Ephata.YouCat.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\CommandHandlers\" />
+    <Folder Include="Handlers\EventHandlers\" />
+    <Folder Include="Handlers\QueryHandlers\" />
+    <Folder Include="Model\Pray\Command\" />
+    <Folder Include="Model\Pray\Event\" />
+    <Folder Include="Model\Pray\Query\" />
+    <Folder Include="Model\Pray\ViewModel\" />
+    <Folder Include="Model\YouCatDaily\Command\" />
+    <Folder Include="Model\YouCatDaily\Event\" />
+    <Folder Include="Model\YouCatDaily\Query\" />
+    <Folder Include="Model\YouCatDaily\ViewModel\" />
+  </ItemGroup>
+
+
+</Project>

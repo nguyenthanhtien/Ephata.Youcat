@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+    # userservice:
+    #     container_name: youcat-service
+    #     build: .
+    #     ports:
+    #         - "8000:80"
+    #     environment: 
+    #         ASPNETCORE_ENVIRONMENT: 'Development'
+    #     volumes: 
+    #         - "/Ephata.YouCat.WebAPI/appsettings.Development.json:/appsettings.Development.json"
+    #         - "/Ephata.YouCat.WebAPI/appsettings.json:/appsettings.json"
+    #     depends_on:
+    #         - elastic
+    elastic:
+        container_name: elastic-service
+        image: elasticsearch:7.14.1
+        environment:
+            cluster.name: ${CLUSTER_NAME:-docker-cluster}
+            bootstrap.memory_lock: ${BOOTSTRAP_MEMORY_LOCK:-true}
+            discovery.type: ${DISCOVERY_TYPE:-single-node}
+        volumes:
+            - './elasticdb:/usr/share/elasticsearch/data'
+        ports:
+            - 9200:9200
+    kibana:
+        container_name: kb-container
+        image: kibana:7.14.1
+        environment:
+            ELASTICSEARCH_HOSTS: http://elastic-service:9200
+        depends_on:
+            - elastic
+        ports:
+            - 5601:5601
