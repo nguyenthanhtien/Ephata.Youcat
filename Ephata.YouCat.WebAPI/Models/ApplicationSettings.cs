@@ -1,13 +1,13 @@
 ﻿using NetEscapades.Configuration.Validation;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Ephata.YouCat.WebAPI.Models
 {
     public class ApplicationSettings : IValidatable
     {
-        public string ConnectionsString { get; set; }
-        public string ApplicationUrl { get; set; }
-        public SwaggerSetting Swagger { get; set; }
+        public string ElasticUrl { get; set; }
+        public IEnumerable<string> Indices { get; set; }
 
         public void Validate()
         {

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Ephata.YouCat.WebAPI
 {
@@ -15,7 +16,6 @@ namespace Ephata.YouCat.WebAPI
         }
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -25,7 +25,8 @@ namespace Ephata.YouCat.WebAPI
             services.RegisterServiceBusiness();
             services.RegisterHandler();
             services.AddSwaggerGen();
-            services.HealthCheckEntityFramework();
+            services.HealthCheckElasticsearch(applicationSettings.ElasticUrl);
+            services.AddElasticsearch(applicationSettings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +48,7 @@ namespace Ephata.YouCat.WebAPI
             {
                 endpoints.MapControllers();
             });
-            app.UseHealthCheckEntityFramework();
+            app.UseHealthCheckElasticsearch();
         }
     }
 }

@@ -17,10 +17,10 @@ namespace Ephata.Application.Product.Data.Initiation
 
     public class InitiationIndexHandler : IInitiationIndexHandler
     {
-        private readonly IElasticClientHandler _elasticClientHandler;
+        private readonly IElasticClient _elasticClientHandler;
         private readonly ILogger<InitiationIndexHandler> _logger;
         public InitiationIndexHandler(
-            IElasticClientHandler elasticClientHandler,
+            IElasticClient elasticClientHandler,
             ILogger<InitiationIndexHandler> logger)
         {
             this._elasticClientHandler = elasticClientHandler;

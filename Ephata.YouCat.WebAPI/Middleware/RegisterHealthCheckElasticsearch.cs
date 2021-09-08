@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Ephata.YouCat.WebAPI.Middleware
 {
-    public static class RegisterHealthCheckEntityFramework
+    public static class RegisterHealthCheckElasticsearch
     {
-        public static void HealthCheckEntityFramework(this IServiceCollection services)
+        public static void HealthCheckElasticsearch(this IServiceCollection services, string elasticUrl)
         {
-    //        services.AddHealthChecks()
-    //.                AddDbContextCheck<UserDbContext>();
+            services.AddHealthChecks()
+                .AddElasticsearch(elasticUrl);
         }
 
-        public static void UseHealthCheckEntityFramework(this IApplicationBuilder app)
+        public static void UseHealthCheckElasticsearch(this IApplicationBuilder app)
         {
             app.UseEndpoints(endpoints =>
             {
