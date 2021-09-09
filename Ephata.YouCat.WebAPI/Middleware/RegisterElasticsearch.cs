@@ -23,13 +23,13 @@ namespace Ephata.YouCat.WebAPI.Middleware
             var client = new ElasticClient(GetConnectionSettings(configuration.ElasticUrl, logger));
             services.AddSingleton<IElasticClient>(client);
             services.AddTransient<IInitiationIndexHandler,InitiationIndexHandler>();
-            //services.InitIndex(configuration);
+            services.InitIndex(configuration);
         }
         public static void InitIndex(this IServiceCollection services, ApplicationSettings configuration)
         {
 
             //get elastic service instace & create index
-            var initIndexHandler = services.BuildServiceProvider().GetRequiredService<InitiationIndexHandler>();
+            var initIndexHandler = services.BuildServiceProvider().GetRequiredService<IInitiationIndexHandler>();
             initIndexHandler.CreateIndex(configuration.Indices).Wait();
 
         }

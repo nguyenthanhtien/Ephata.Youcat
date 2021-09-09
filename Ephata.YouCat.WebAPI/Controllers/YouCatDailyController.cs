@@ -7,10 +7,10 @@ namespace Ephata.YouCat.WebAPI.Controllers
 {
     [ApiController]
     [Route("User")]
-    public class UserController : ControllerBase
+    public class YouCatDailyController : ControllerBase
     {
 
-        public UserController()
+        public YouCatDailyController()
         {
         }
 
