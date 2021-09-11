@@ -1,4 +1,4 @@
-﻿using Ephata.YouCat.Data.ElasticClientHandler;
+﻿using Ephata.YouCat.Data.Models.Primary;
 using Ephata.YouCat.DomainLayer.Model.Pray.Command;
 using MediatR;
 using Nest;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
 {
-    class DeletePrayHandler : IRequestHandler<RemovePrayCommand, bool>
+    public class DeletePrayHandler : IRequestHandler<RemovePrayCommand, bool>
     {
         private readonly IElasticClient _elasticClientHandler;
         public DeletePrayHandler(IElasticClient elasticClientHandler)
@@ -19,7 +19,7 @@ namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
         }
         public async Task<bool> Handle(RemovePrayCommand request, CancellationToken cancellationToken)
         {
-            var result = await _elasticClientHandler.DeleteAsync(null);
+            var result = await _elasticClientHandler.DeleteAsync(DocumentPath<Pray>.Id(request.Id).Index("pray"));
             return result.Result == Result.Deleted;
         }
     }

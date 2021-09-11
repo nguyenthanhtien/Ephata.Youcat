@@ -1,5 +1,4 @@
 ﻿using Elasticsearch.Net;
-using Ephata.YouCat.Data.ElasticClientHandler;
 using Ephata.YouCat.Data.Models.Primary;
 using Ephata.YouCat.DomainLayer.Model.Pray.Command;
 using MediatR;

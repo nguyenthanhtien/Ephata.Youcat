@@ -1,5 +1,4 @@
-﻿using Ephata.YouCat.Data.ElasticClientHandler;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Nest;
 using Polly;
 using Polly.Retry;

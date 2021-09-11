@@ -28,7 +28,9 @@ namespace Ephata.YouCat.WebAPI.Middleware
         }
         public static void RegisterHandler(this IServiceCollection services)
         {
-            services.AddScoped<IRequestHandler<CreatePrayCommand,bool> , CreatePrayHandler>();
+            services.AddScoped<IRequestHandler<CreatePrayCommand, bool>, CreatePrayHandler>();
+            services.AddScoped<IRequestHandler<UpdatePrayCommand, bool>, UpdatePrayHandler>();
+            services.AddScoped<IRequestHandler<RemovePrayCommand, bool>, DeletePrayHandler>();
         }
     }
 }

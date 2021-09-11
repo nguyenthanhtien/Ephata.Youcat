@@ -1,6 +1,5 @@
 ﻿using Elasticsearch.Net;
 using Ephata.Application.Product.Data.Initiation;
-using Ephata.YouCat.Data.ElasticClientHandler;
 using Ephata.YouCat.WebAPI.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

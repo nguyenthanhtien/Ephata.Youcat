@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
 {
-    class UpdatePrayHandler : IRequestHandler<UpdatePrayCommand, bool>
+    public class UpdatePrayHandler : IRequestHandler<UpdatePrayCommand, bool>
     {
         private readonly IElasticClient _elasticClientHandler;
         public UpdatePrayHandler(IElasticClient elasticClientHandler)
@@ -23,7 +23,7 @@ namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
                                 .Index("pray")
                                 .Id(request.Id)
                                 .Refresh(Refresh.WaitFor));
-            return result.Result == Result.Created;
+            return result.Result == Result.Updated;
         }
     }
 }

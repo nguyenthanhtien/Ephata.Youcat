@@ -7,5 +7,6 @@ namespace Ephata.YouCat.DomainLayer.Model.Pray.Command
 {
     public class RemovePrayCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
     }
 }
