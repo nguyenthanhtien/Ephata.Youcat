@@ -30,27 +30,18 @@ namespace Ephata.YouCat.Service.Service
         {
             return _mediator.Send(command);
         }
-
         public Task<PrayViewModel> GetPrayById(GetPrayByIdQuery query)
         {
             return _mediator.Send(query);
         }
-
-        
-
         public Task<IEnumerable<PrayViewModel>> GetPrayers(GetPrayQuery command)
         {
             return _mediator.Send(command);
         }
-
-        
         public Task<bool> RemovePray(RemovePrayCommand command)
         {
             return _mediator.Send(command);
         }
-
-       
-
         public Task<bool> UpdatePray(UpdatePrayCommand command)
         {
             return _mediator.Send(command);
