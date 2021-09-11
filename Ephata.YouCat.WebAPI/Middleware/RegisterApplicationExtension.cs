@@ -4,6 +4,8 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Ephata.YouCat.DomainLayer.Model.Pray.Command;
+using Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler;
 
 namespace Ephata.YouCat.WebAPI.Middleware
 {
@@ -26,7 +28,7 @@ namespace Ephata.YouCat.WebAPI.Middleware
         }
         public static void RegisterHandler(this IServiceCollection services)
         {
-            //services.AddScoped<INotificationHandler<CreatedUserSuccessEvent>, CreateUserSuccessedEventHandler>();
-          }
+            services.AddScoped<IRequestHandler<CreatePrayCommand,bool> , CreatePrayHandler>();
+        }
     }
 }

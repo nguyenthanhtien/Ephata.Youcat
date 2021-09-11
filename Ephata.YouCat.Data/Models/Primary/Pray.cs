@@ -7,6 +7,7 @@ namespace Ephata.YouCat.Data.Models.Primary
 {
     public class Pray
     {
+        public Guid Id { get; set; }
         public Prayer Prayer { get; set; }
         public string ShortDescription { get; set; }
         public string DetailPray { get; set; }
