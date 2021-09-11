@@ -17,10 +17,7 @@
     <Folder Include="Handlers\EventHandlers\" />
     <Folder Include="Handlers\QueryHandlers\" />
     <Folder Include="Model\Pray\Event\" />
-    <Folder Include="Model\YouCatDaily\Command\" />
     <Folder Include="Model\YouCatDaily\Event\" />
-    <Folder Include="Model\YouCatDaily\Query\" />
-    <Folder Include="Model\YouCatDaily\ViewModel\" />
   </ItemGroup>
 
 

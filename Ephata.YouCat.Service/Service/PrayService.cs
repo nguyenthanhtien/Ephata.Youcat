@@ -15,11 +15,6 @@ namespace Ephata.YouCat.Service.Service
         Task<bool> CreatePray(CreatePrayCommand command);
         Task<bool> UpdatePray(UpdatePrayCommand command);
         Task<bool> RemovePray(RemovePrayCommand command);
-        Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetPrayCommentQuery command);
-        Task<PrayCommentViewModel> GetPrayCommentById(GetPrayCommentByIdQuery query);
-        Task<bool> AddComment(CreatePrayCommentCommand command);
-        Task<bool> UpdateComment(UpdatePrayCommentCommand command);
-        Task<bool> RemoveComment(RemovePrayCommentCommand command);
 
     }
 
@@ -29,11 +24,6 @@ namespace Ephata.YouCat.Service.Service
         public PrayService(IMediator mediator)
         {
             this._mediator = mediator;
-        }
-
-        public Task<bool> AddComment(CreatePrayCommentCommand command)
-        {
-            return _mediator.Send(command);
         }
 
         public Task<bool> CreatePray(CreatePrayCommand command)
@@ -46,35 +36,20 @@ namespace Ephata.YouCat.Service.Service
             return _mediator.Send(query);
         }
 
-        public Task<PrayCommentViewModel> GetPrayCommentById(GetPrayCommentByIdQuery query)
-        {
-            return _mediator.Send(query);
-        }
-
-        public Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetPrayCommentQuery query)
-        {
-            return _mediator.Send(query);
-        }
+        
 
         public Task<IEnumerable<PrayViewModel>> GetPrayers(GetPrayQuery command)
         {
             return _mediator.Send(command);
         }
 
-        public Task<bool> RemoveComment(RemovePrayCommentCommand command)
-        {
-            return _mediator.Send(command);
-        }
-
+        
         public Task<bool> RemovePray(RemovePrayCommand command)
         {
             return _mediator.Send(command);
         }
 
-        public Task<bool> UpdateComment(UpdatePrayCommentCommand command)
-        {
-            return _mediator.Send(command);
-        }
+       
 
         public Task<bool> UpdatePray(UpdatePrayCommand command)
         {
