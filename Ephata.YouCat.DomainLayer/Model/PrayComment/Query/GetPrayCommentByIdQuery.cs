@@ -9,5 +9,6 @@ namespace Ephata.YouCat.DomainLayer.Model.PrayComment.Query
 {
     public class GetPrayCommentByIdQuery : IRequest<PrayCommentViewModel>
     {
+        public Guid Id { get; set; }
     }
 }

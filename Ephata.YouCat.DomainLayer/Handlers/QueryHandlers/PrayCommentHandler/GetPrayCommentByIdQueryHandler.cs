@@ -1,6 +1,8 @@
-﻿using Ephata.YouCat.DomainLayer.Model.PrayComment.Query;
+﻿using Ephata.YouCat.Data.Models.Additional;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.Query;
 using Ephata.YouCat.DomainLayer.Model.PrayComment.ViewModel;
 using MediatR;
+using Nest;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,13 +13,21 @@ namespace Ephata.YouCat.DomainLayer.Handlers.QueryHandlers.PrayHandler
 {
     public class GetPrayCommentByIdQueryHandler : IRequestHandler<GetPrayCommentByIdQuery, PrayCommentViewModel>
     {
-        public GetPrayCommentByIdQueryHandler()
-        {
+        private readonly IElasticClient _elasticClientHandler;
 
-        }
-        public Task<PrayCommentViewModel> Handle(GetPrayCommentByIdQuery request, CancellationToken cancellationToken)
+        public GetPrayCommentByIdQueryHandler(IElasticClient elasticClientHandler)
         {
-            throw new NotImplementedException();
+            _elasticClientHandler = elasticClientHandler;
+        }
+        public async Task<PrayCommentViewModel> Handle(GetPrayCommentByIdQuery request, CancellationToken cancellationToken)
+        {
+            var prayResponse = _elasticClientHandler.Get(DocumentPath<PrayComment>.Id(request.Id).Index("pray"));
+            var prayExisted = prayResponse.Source;
+            return new PrayCommentViewModel
+            {
+                PrayerId = prayExisted.PrayerId,
+                CommentDetail = prayExisted.CommentDetail,
+            };
         }
     }
 }

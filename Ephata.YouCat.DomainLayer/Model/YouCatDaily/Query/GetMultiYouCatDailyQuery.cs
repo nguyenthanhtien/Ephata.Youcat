@@ -8,5 +8,6 @@ namespace Ephata.YouCat.DomainLayer.Model.YouCatDaily.Query
 {
     public class GetMultiYouCatDailyQuery : IRequest<IEnumerable<YouCatDailyViewModel>>
     {
+        public string Bible { get; set; }
     }
 }

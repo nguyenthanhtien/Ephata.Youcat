@@ -7,5 +7,6 @@ namespace Ephata.YouCat.DomainLayer.Model.PrayComment.Query
 {
     public class GetMultiPrayCommentQuery : IRequest<IEnumerable<PrayCommentViewModel>>
     {
+        public string Detail { get;  set; }
     }
 }
