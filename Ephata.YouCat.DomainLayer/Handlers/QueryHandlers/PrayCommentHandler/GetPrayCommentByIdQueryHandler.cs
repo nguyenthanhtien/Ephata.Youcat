@@ -1,4 +1,5 @@
 ﻿using Ephata.YouCat.Data.Models.Additional;
+using Ephata.YouCat.Data.Models.Primary;
 using Ephata.YouCat.DomainLayer.Model.PrayComment.Query;
 using Ephata.YouCat.DomainLayer.Model.PrayComment.ViewModel;
 using MediatR;
@@ -21,12 +22,12 @@ namespace Ephata.YouCat.DomainLayer.Handlers.QueryHandlers.PrayHandler
         }
         public async Task<PrayCommentViewModel> Handle(GetPrayCommentByIdQuery request, CancellationToken cancellationToken)
         {
-            var prayResponse = _elasticClientHandler.Get(DocumentPath<PrayComment>.Id(request.Id).Index("pray"));
+            var prayResponse = _elasticClientHandler.Get(DocumentPath<Pray>.Id(request.Id).Index("pray"));
             var prayExisted = prayResponse.Source;
             return new PrayCommentViewModel
             {
-                PrayerId = prayExisted.PrayerId,
-                CommentDetail = prayExisted.CommentDetail,
+                Id = prayExisted.Id,
+                PrayerComments = prayExisted.PrayerComments,
             };
         }
     }
