@@ -20,7 +20,7 @@ namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
         public async Task<bool> Handle(UpdatePrayCommentCommand request, CancellationToken cancellationToken)
         {
             var result = _elasticClientHandler.Index(request, i => i
-                                .Index("praycomment")
+                                .Index("pray")
                                 .Id(request.Id)
                                 .Refresh(Refresh.WaitFor));
             return result.Result == Result.Updated;

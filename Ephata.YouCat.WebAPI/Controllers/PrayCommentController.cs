@@ -17,7 +17,7 @@ namespace Ephata.YouCat.WebAPI.Controllers
         {
             _prayCommentService = prayCommentService;
         }
-        [HttpGet("get-by-id")]
+        [HttpGet("get-by-id/{id}")]
         public async Task<ActionResult> GetPrayCommentById(GetPrayCommentByIdQuery query)
         {
             var result = await _prayCommentService.GetPrayCommentById(query);

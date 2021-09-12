@@ -19,7 +19,7 @@ namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
         }
         public async Task<bool> Handle(RemovePrayCommentCommand request, CancellationToken cancellationToken)
         {
-            var result = await _elasticClientHandler.DeleteAsync(DocumentPath<Pray>.Id(request.Id).Index("praycomment"));
+            var result = await _elasticClientHandler.DeleteAsync(DocumentPath<Pray>.Id(request.Id).Index("pray"));
             return result.Result == Result.Deleted;
         }
     }

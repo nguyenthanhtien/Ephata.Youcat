@@ -8,5 +8,6 @@ namespace Ephata.YouCat.DomainLayer.Model.YouCatDaily.Query
 {
     public class GetYouCatDailyByIdQuery : IRequest<YouCatDailyViewModel>
     {
+        public Guid Id { get; set; }
     }
 }

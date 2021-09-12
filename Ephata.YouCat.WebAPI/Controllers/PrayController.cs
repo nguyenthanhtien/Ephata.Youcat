@@ -2,6 +2,7 @@
 using Ephata.YouCat.DomainLayer.Model.Pray.Query;
 using Ephata.YouCat.Service.Service;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,10 +17,10 @@ namespace Ephata.YouCat.WebAPI.Controllers
         {
             _prayService = prayService;
         }
-        [HttpGet("get-by-id")]
-        public async Task<ActionResult> GetPrayById(GetPrayByIdQuery query)
+        [HttpGet("get-by-id/{id}")]
+        public async Task<ActionResult> GetPrayById(Guid id)
         {
-            var result = await _prayService.GetPrayById(query);
+            var result = await _prayService.GetPrayById(new GetPrayByIdQuery { Id = id });
             return Ok(result);
         }
 

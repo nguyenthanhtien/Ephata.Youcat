@@ -8,5 +8,6 @@ namespace Ephata.YouCat.DomainLayer.Model.Pray.Query
 {
     public class GetPrayByIdQuery : IRequest<PrayViewModel>
     {
+        public Guid Id { get; set; }
     }
 }
