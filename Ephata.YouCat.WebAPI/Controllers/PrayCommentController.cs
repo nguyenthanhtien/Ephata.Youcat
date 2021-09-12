@@ -1,5 +1,6 @@
-﻿using Ephata.YouCat.DomainLayer.Model.Pray.Command;
-using Ephata.YouCat.DomainLayer.Model.Pray.Query;
+﻿using Ephata.YouCat.DomainLayer.Model.Pray.Query;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.Command;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.Query;
 using Ephata.YouCat.Service.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Ephata.YouCat.WebAPI.Controllers
         }
 
         [HttpPost("filter")]
-        public async Task<ActionResult> Filter(GetPrayCommentQuery query)
+        public async Task<ActionResult> Filter(GetMultiPrayCommentQuery query)
         {
             var result = await _prayCommentService.GetPrayComments(query);
             return Ok(result);

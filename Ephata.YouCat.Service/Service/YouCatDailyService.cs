@@ -11,7 +11,7 @@ namespace Ephata.YouCat.Service.Service
 {
     public interface IYouCatDailyService
     {
-        Task<IEnumerable<YouCatDailyViewModel>> GetYouCatDailies(GetYouCatDailyQuery command);
+        Task<IEnumerable<YouCatDailyViewModel>> GetYouCatDailies(GetMultiYouCatDailyQuery command);
         Task<YouCatDailyViewModel> GetYouCatDailyById(GetYouCatDailyByIdQuery query);
         Task<bool> AddYouCatDaily(CreateYouCatDailyCommand command);
         Task<bool> UpdateYouCatDaily(UpdateYouCatDailyCommand command);
@@ -30,7 +30,7 @@ namespace Ephata.YouCat.Service.Service
             return _mediator.Send(command);
         }
 
-        public Task<IEnumerable<YouCatDailyViewModel>> GetYouCatDailies(GetYouCatDailyQuery command)
+        public Task<IEnumerable<YouCatDailyViewModel>> GetYouCatDailies(GetMultiYouCatDailyQuery command)
         {
             return _mediator.Send(command);
         }

@@ -1,6 +1,8 @@
-﻿using Ephata.YouCat.DomainLayer.Model.Pray.Command;
-using Ephata.YouCat.DomainLayer.Model.Pray.Query;
+﻿using Ephata.YouCat.DomainLayer.Model.Pray.Query;
 using Ephata.YouCat.DomainLayer.Model.Pray.ViewModel;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.Command;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.Query;
+using Ephata.YouCat.DomainLayer.Model.PrayComment.ViewModel;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ namespace Ephata.YouCat.Service.Service
 {
     public interface IPrayCommentService
     {
-        Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetPrayCommentQuery command);
+        Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetMultiPrayCommentQuery command);
         Task<PrayCommentViewModel> GetPrayCommentById(GetPrayCommentByIdQuery query);
         Task<bool> AddComment(CreatePrayCommentCommand command);
         Task<bool> UpdateComment(UpdatePrayCommentCommand command);
@@ -29,7 +31,7 @@ namespace Ephata.YouCat.Service.Service
             return _mediator.Send(query);
         }
 
-        public Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetPrayCommentQuery query)
+        public Task<IEnumerable<PrayCommentViewModel>> GetPrayComments(GetMultiPrayCommentQuery query)
         {
             return _mediator.Send(query);
         }

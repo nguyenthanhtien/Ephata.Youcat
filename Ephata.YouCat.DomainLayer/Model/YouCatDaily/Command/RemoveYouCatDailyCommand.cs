@@ -7,5 +7,7 @@ namespace Ephata.YouCat.DomainLayer.Model.YouCatDaily.Command
 {
     public class RemoveYouCatDailyCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ephata.YouCat.DomainLayer.Model.YouCatDaily.Query
 {
-    public class GetYouCatDailyQuery : IRequest<IEnumerable<YouCatDailyViewModel>>
+    public class GetMultiYouCatDailyQuery : IRequest<IEnumerable<YouCatDailyViewModel>>
     {
     }
 }

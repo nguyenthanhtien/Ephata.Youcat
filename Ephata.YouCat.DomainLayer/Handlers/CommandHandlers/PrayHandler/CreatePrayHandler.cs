@@ -1,4 +1,5 @@
 ﻿using Elasticsearch.Net;
+using Ephata.YouCat.Data.Models.Primary;
 using Ephata.YouCat.DomainLayer.Model.Pray.Command;
 using MediatR;
 using Nest;
@@ -8,22 +9,22 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayCommandHandler
+namespace Ephata.YouCat.DomainLayer.Handlers.CommandHandlers.PrayHandler
 {
-    public class UpdatePrayHandler : IRequestHandler<UpdatePrayCommand, bool>
+    public class CreatePrayHandler : IRequestHandler<CreatePrayCommand, bool>
     {
         private readonly IElasticClient _elasticClientHandler;
-        public UpdatePrayHandler(IElasticClient elasticClientHandler)
+        public CreatePrayHandler(IElasticClient elasticClientHandler)
         {
             _elasticClientHandler = elasticClientHandler;
         }
-        public async Task<bool> Handle(UpdatePrayCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreatePrayCommand request, CancellationToken cancellationToken)
         {
             var result = _elasticClientHandler.Index(request, i => i
                                 .Index("pray")
                                 .Id(request.Id)
                                 .Refresh(Refresh.WaitFor));
-            return result.Result == Result.Updated;
+            return result.Result == Result.Created;
         }
     }
 }

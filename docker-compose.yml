@@ -1,17 +1,17 @@
 version: "3.8"
 services:
-    userservice:
-        container_name: youcat-service
-        build: .
-        ports:
-            - "8000:80"
-        environment: 
-            ASPNETCORE_ENVIRONMENT: 'Development'
-        volumes: 
-            - "/Ephata.YouCat.WebAPI/appsettings.Development.json:/appsettings.Development.json"
-            - "/Ephata.YouCat.WebAPI/appsettings.json:/appsettings.json"
-        depends_on:
-            - elastic
+    # userservice:
+    #     container_name: youcat-service
+    #     build: .
+    #     ports:
+    #         - "8000:80"
+    #     environment: 
+    #         ASPNETCORE_ENVIRONMENT: 'Development'
+    #     volumes: 
+    #         - "/Ephata.YouCat.WebAPI/appsettings.Development.json:/appsettings.Development.json"
+    #         - "/Ephata.YouCat.WebAPI/appsettings.json:/appsettings.json"
+    #     depends_on:
+    #         - elastic
     elastic:
         container_name: elastic-service
         image: elasticsearch:7.14.1

@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Folder Include="Handlers\EventHandlers\" />
-    <Folder Include="Handlers\QueryHandlers\PrayQueryHandler\" />
+    <Folder Include="Model\PrayComment\Event\" />
     <Folder Include="Model\Pray\Event\" />
     <Folder Include="Model\YouCatDaily\Event\" />
   </ItemGroup>

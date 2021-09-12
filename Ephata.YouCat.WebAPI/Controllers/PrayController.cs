@@ -24,7 +24,7 @@ namespace Ephata.YouCat.WebAPI.Controllers
         }
 
         [HttpPost("filter")]
-        public async Task<ActionResult> Filter(GetPrayQuery query)
+        public async Task<ActionResult> Filter(GetMultiPrayQuery query)
         {
             var result = await _prayService.GetPrayers(query);
             return Ok(result);

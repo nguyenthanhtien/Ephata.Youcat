@@ -24,7 +24,7 @@ namespace Ephata.YouCat.WebAPI.Controllers
         }
 
         [HttpPost("filter")]
-        public async Task<ActionResult> Filter(GetYouCatDailyQuery query)
+        public async Task<ActionResult> Filter(GetMultiYouCatDailyQuery query)
         {
             var result = await _youCatDailyService.GetYouCatDailies(query);
             return Ok(result);

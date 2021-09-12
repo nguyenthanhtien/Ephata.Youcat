@@ -10,7 +10,7 @@ namespace Ephata.YouCat.Service.Service
 {
     public interface IPrayService
     {
-        Task<IEnumerable<PrayViewModel>> GetPrayers(GetPrayQuery command);
+        Task<IEnumerable<PrayViewModel>> GetPrayers(GetMultiPrayQuery command);
         Task<PrayViewModel> GetPrayById(GetPrayByIdQuery query);
         Task<bool> CreatePray(CreatePrayCommand command);
         Task<bool> UpdatePray(UpdatePrayCommand command);
@@ -34,7 +34,7 @@ namespace Ephata.YouCat.Service.Service
         {
             return _mediator.Send(query);
         }
-        public Task<IEnumerable<PrayViewModel>> GetPrayers(GetPrayQuery command)
+        public Task<IEnumerable<PrayViewModel>> GetPrayers(GetMultiPrayQuery command)
         {
             return _mediator.Send(command);
         }
