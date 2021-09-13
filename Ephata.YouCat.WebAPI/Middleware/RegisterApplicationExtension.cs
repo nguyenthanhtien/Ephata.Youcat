@@ -36,7 +36,7 @@ namespace Ephata.YouCat.WebAPI.Middleware
         public static void RegisterServiceBusiness(this IServiceCollection services)
         {
             services.AddLogging(logBuilder => logBuilder.AddConsole());
-            services.AddScoped<IPrayService, IPrayService>();
+            services.AddScoped<IPrayService, PrayService>();
             services.AddScoped<IYouCatDailyService, YouCatDailyService>();
             services.AddScoped<IPrayCommentService, PrayCommentService>();
 
